@@ -21,7 +21,7 @@ It supports the following features to help the user keep track of file changes.
 - [Reset](#reset)
 - [Merge](#merge)
 - [Clone](#clone)
-### Init
+## Init
 
 ```
 java gitplit.Main init
@@ -39,7 +39,7 @@ A GitPlit repository consists of 4 directories and 2 files.
 * __current_branch__ is a file that stores the name of the current branch.    
 * __head_commit__ is a file that stores the head commit ID.
 
-### Add 
+## Add 
 
 ```
 java gitplit.Main add [FileName]
@@ -54,7 +54,7 @@ If the file does not exist in the current working directory, prints the followin
 ![image](https://user-images.githubusercontent.com/126933771/222881637-076dd8db-d29c-40f1-b13c-4a6e962835eb.png)      
 
 
-### Commit
+## Commit
 
 ```
 java gitplit.Main commit [Message]
@@ -69,22 +69,25 @@ Commit information is serialized and written as a content in each commit file.
     
 ![image](https://user-images.githubusercontent.com/126933771/222881960-3b8d968e-b39e-4a33-99c3-c7b21f08f8d9.png)    
    
-### Log
+## Log
 
 ```
 java gitplit.Main log
 ```
-Displays the commit tree of the GitPlit repository.
+Displays the commit history.
    
 ![image](https://user-images.githubusercontent.com/126933771/222882150-76057bf3-9149-43a0-aa06-346463956e05.png)   
    
-### Branch
+## Branch
    
+```
+java gitplit.Main branch [BranchName]
+java gitplit.Main branch -d [BranchName]
+```
 
 
 
-
-### Checkout
+## Checkout
 
 ```
 java gitplit.Main checkout [BranchName]
