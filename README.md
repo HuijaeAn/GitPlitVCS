@@ -63,8 +63,7 @@ Creates a commit with the commit message __Message__.
 
 ![image](https://user-images.githubusercontent.com/126933771/222881699-04481c48-a626-45bf-9e11-22b5d6e96d64.png)   
 ![image](https://user-images.githubusercontent.com/126933771/222881726-0b95e1d6-564e-4281-9e43-6c14255a2fe0.png)    
-    
-Creating commit clears the addition/removal staging area.     
+       
 Commit information is serialized and written as a content in each commit file.   
     
 ![image](https://user-images.githubusercontent.com/126933771/222881960-3b8d968e-b39e-4a33-99c3-c7b21f08f8d9.png)    
