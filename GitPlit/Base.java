@@ -17,15 +17,13 @@ public class Base {
     /* Removal staging area. */
     static final File REMOVALS = Utils.subFile(GITPLIT, "removals");
     /* Storage for commits. */
-    static final File COMMITS = Utils.subFile(GITPLIT, "COMMITS");
+    static final File COMMITS = Utils.subFile(GITPLIT, "commits");
     /* Storage for the head commit information. */
     static final File HEAD_COMMIT = Utils.subFile(GITPLIT, "head_commit");
     /* Storage for branches. */
     static final File BRANCHES = Utils.subFile(GITPLIT, "branches");
     /* Storage for the current branch information. */
     static final File CURRENT_BRANCH = Utils.subFile(GITPLIT, "current_branch");
-    /* Storage for remotes. */
-    static final File REMOTE = Utils.subFile(GITPLIT, "remote");
     /* Current working directory. */
     static final File CWD = new File(".");
     /* Boolean used to check if there was a merge conflict. */
@@ -46,7 +44,6 @@ public class Base {
         HEAD_COMMIT.createNewFile();
         BRANCHES.mkdir();
         CURRENT_BRANCH.createNewFile();
-        REMOTE.mkdir();
         
         addBranch("master");
         updateCurrentBranch("master");
@@ -237,7 +234,7 @@ public class Base {
     }
     
     /* Takes the version of the file named FILENAME as it exists in the head commit and puts it in CWD.
-     * Overwrites if it already exists.
+     * Overwrites if the file already exists.
      * This new/newer version of the file is not staged. */
     public static void checkoutFile(String fileName) throws IOException {
         Commit headCommit = headCommit();
@@ -253,7 +250,7 @@ public class Base {
     }
     
     /* Takes the version of the file named FILENAME as it exists in the commit with COMMITID and puts it in CWD.
-     * Overwrites if it already exists.
+     * Overwrites if the file already exists.
      * This new/newer version of the file is not staged. 
      * COMMITID can be abbreviated (must be at least 6 letters). */
     public static void checkoutFile(String fileName, String commitID) throws IOException {
@@ -276,7 +273,7 @@ public class Base {
     }
     
     /* Takes all files of the commit pointed by the branch BRANCHNAME and puts them in CWD.
-     * Overwrites if they already exist.
+     * Overwrites if the files already exist.
      * The referenced branch will now be considered the current branch. */
     public static void checkoutBranch(String branchName) throws IOException {
         File targetBranchFile = Utils.subFile(BRANCHES, branchName);
@@ -340,7 +337,7 @@ public class Base {
         }
     }
     
-    /* Displays the state of the working directory. */
+    /* Displays the current status of the working directory. */
     public static void status() {
         String[] branchNames = BRANCHES.list();
         Arrays.sort(branchNames);
@@ -533,6 +530,7 @@ public class Base {
             return;
         } else if (idOfCurrentBranch.equals(idOfLCA)) {
             System.out.println("Current branch fast-forwarded.");
+            return;
         }
         
         Commit commitOfCB = Utils.readObject(Utils.subFile(COMMITS, idOfCurrentBranch), Commit.class);
@@ -632,7 +630,7 @@ public class Base {
         conflicted = true;
     }
     
-    /* Copies the GitPlit repository in CWD and puts it into DIRPATH.
+    /* Copies a GitPlit repository from CWD and puts it into DIRPATH.
      * Overwrites if a GitPlit repository already exists in DIRPATH.
      * Note that this method will also create the GitPlit related java & class files in DirPath.
        This will allow the user to run GitPlit from DIRPATH without having to copy over the program files manually.
@@ -663,7 +661,7 @@ public class Base {
         Utils.copyFiles(Utils.subFile(CWD, ".gitplit_repository"), Utils.subFile(dir, ".gitplit_repository"));
     }
     
-    /* Copies the GitPlit repository in REPOPATH and puts it into DIRPATH.
+    /* Copies a GitPlit repository from REPOPATH and puts it into DIRPATH.
      * Overwrites if a GitPlit repository already exists in DIRPATH.
      * Note that this method will also create the GitPlit related java & class files in DirPath.
        This will allow the user to run GitPlit from DIRPATH without having to copy over the program files manually.
