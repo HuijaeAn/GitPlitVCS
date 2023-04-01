@@ -5,8 +5,7 @@ GitPlit is a version control system that reproduces the features of git.
 * [Technologies](#technologies)  
   
 ## General Information
-GitPlit is a version control system powered by its unique design and functionalities.  
-It supports the following features:
+GitPlit helps the user keep track of file changes with the following features:
    
 - [Init](#init)
 - [Add](#add)
@@ -159,7 +158,7 @@ This feature only exists in GitPlit. Does not exist in real git.
 java gitplit.Main checkout -- [FileName]
 ```
 Takes the version of the file with __FileName__ as it exists in the head commit and puts it in the CWD.  
-Overwrites if the file already exists. This new/newer version of the file is not staged.  
+Overwrites if the file already exists. This new/newer version of the file is not staged for addition.  
   
 ![image](https://user-images.githubusercontent.com/126933771/228256246-295db822-28ac-446a-b096-b442b686f0b2.png)  
   
@@ -172,7 +171,7 @@ java gitplit.Main checkout [CommitID] -- [FileName]
 ```
 Takes the version of the file with __FileName__ as it exists in the commit with __CommitID__ and puts it in the CWD.  
 __CommitID__ can be abbreviated (must be at least 6 letters).   
-Overwrites if the file already exists. This new/newer version of the file is not staged.  
+Overwrites if the file already exists. This new/newer version of the file is not staged for addition.  
   
 ![image](https://user-images.githubusercontent.com/126933771/228257986-14c7cdda-b6f4-49a7-b985-cdaa5344118c.png)  
   
@@ -181,7 +180,7 @@ Overwrites if the file already exists. This new/newer version of the file is not
 ![image](https://user-images.githubusercontent.com/126933771/228258643-761addfe-25d8-4383-b4ff-2d208adce34f.png)  
 ‎ 
 
-‎  
+‎
 ```
 java gitplit.Main checkout [BranchName]
 ```
@@ -202,7 +201,8 @@ The referenced branch will now be considered the current branch.
 java gitplit.Main reset [CommitID]
 ```
 Checks out all files tracked by the commit with __CommitID__. __CommitID__ can be abbreviated (must be at least 6 letters).  
-Removes currently-tracked files that are not present in the provided commit. The current branch will now point at the referenced commit.  
+Removes currently-tracked files that are not present in the provided commit.  
+The current branch will now point at the referenced commit.  
   
 ![image](https://user-images.githubusercontent.com/126933771/228263381-54807c1c-14d1-4af9-a4bf-fdd07624708d.png)  
   
@@ -219,9 +219,9 @@ java gitplit.Main merge [BranchName]
 Merges files from the branch with __BranchName__ into the current branch.  
 Couple rules here: 
 * Staging areas must be empty.
-* If the provided branch is the lowest common ancestor of the current branch and the provided branch, prints the following message instead:  
+* If the provided branch is an ancestor of the current branch, prints the following message instead:  
 ![image](https://user-images.githubusercontent.com/126933771/228266430-e862cd99-f130-45c9-8f1d-3c17c067659d.png)
-* If the current branch is the lowest common ancestor of the current branch and the provided branch, prints the following message instead:  
+* If the current branch is an ancestor of the provided branch, prints the following message instead:  
 ![image](https://user-images.githubusercontent.com/126933771/228267007-bc8466aa-6ec0-4d65-8ecf-05995db7dab3.png)
 * If the file contents of the provided branch and the current branch are different from each ohter, it will update the file to include the contents of both.
 * This is called merge conflict. Unlike real git, merge conflicts do not have to be resolved: the changes will be shown in the updated file.
@@ -255,8 +255,8 @@ Couple rules here:
 java gitplit.Main clone [DirPath]
 ```
 Copies a GitPlit repository from the CWD and puts it into __DirPath__.  
-  
 Also creates the corresponding java & class files in __DirPath__ so that the user can run GitPlit from __DirPath__ without having to copy over the program files manually.  
+
 Overwrites if a GitPlit repository already exists in __DirPath__.  
   
 ![image](https://user-images.githubusercontent.com/126933771/228852037-3e44f1df-3653-49c9-9a14-974488bebe17.png)  
@@ -270,8 +270,8 @@ Overwrites if a GitPlit repository already exists in __DirPath__.
 java gitplit.Main clone [RepoPath] [DirPath]
 ```
 Copies a GitPlit repository from __RepoPath__ and puts it into __DirPath__.  
-  
 Also creates the corresponding java & class files in __DirPath__ so that the user can run GitPlit from __DirPath__ without having to copy over the program files manually.  
+  
 Overwrites if a GitPlit repository already exists in __DirPath__.  
   
 ![image](https://user-images.githubusercontent.com/126933771/228853165-d052aeb4-638a-49bb-99d2-f56fe9582652.png)  
