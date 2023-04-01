@@ -97,8 +97,8 @@ Each branch file includes the ID of the commit it's pointing at.
   
 ![image](https://user-images.githubusercontent.com/126933771/228278603-ed6ad2c8-e4a2-4b96-8cc8-04455393f83a.png)  
 ‎      
-  
 ‎  
+
 ```
 java gitplit.Main branch -d [BranchName]
 ```
@@ -163,9 +163,9 @@ Overwrites if the file already exists. This new/newer version of the file is not
 ![image](https://user-images.githubusercontent.com/126933771/228256246-295db822-28ac-446a-b096-b442b686f0b2.png)  
   
 ![image](https://user-images.githubusercontent.com/126933771/228256376-76a317c7-26b8-4c16-86f8-10a097281aa8.png)  
-‎ 
-
+‎      
 ‎  
+
 ```
 java gitplit.Main checkout [CommitID] -- [FileName]
 ```
@@ -178,9 +178,9 @@ Overwrites if the file already exists. This new/newer version of the file is not
 ![image](https://user-images.githubusercontent.com/126933771/228258558-0db21db0-ac3b-40c7-898a-51524f409783.png)  
   
 ![image](https://user-images.githubusercontent.com/126933771/228258643-761addfe-25d8-4383-b4ff-2d208adce34f.png)  
-‎ 
+‎      
+‎  
 
-‎
 ```
 java gitplit.Main checkout [BranchName]
 ```
@@ -262,10 +262,9 @@ Overwrites if a GitPlit repository already exists in __DirPath__.
 ![image](https://user-images.githubusercontent.com/126933771/228852037-3e44f1df-3653-49c9-9a14-974488bebe17.png)  
   
 ![image](https://user-images.githubusercontent.com/126933771/228852215-7e7c9829-bb20-4dca-9c8f-1a42eb9d24e9.png)  
-  
+‎      
 ‎  
-‎  
-  
+
 ```
 java gitplit.Main clone [RepoPath] [DirPath]
 ```
