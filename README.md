@@ -6,7 +6,7 @@ GitPlit is a customizable version control system inspired by git, designed to st
 * [Technologies](#technologies)  
   
 ## General Information
-GitPlit is a powerful version control system designed to streamline your software development process.  
+GitPlit is a version control system designed to streamline your software development process.  
   
 Based on the popular git protocol, GitPlit offers all of the core functionality you need to manage your source code, collaborate with team members, and track changes over time. With GitPlit, you can easily create branches, commit changes, merge code, and resolve conflicts - all from a single, user-friendly interface.  
   
